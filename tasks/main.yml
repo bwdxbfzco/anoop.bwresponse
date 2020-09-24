@@ -13,4 +13,4 @@
   register: data
 
 - debug:
-   msg: echo {{ data.json }}
+   msg: echo {{ data }}
