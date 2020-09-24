@@ -1,0 +1,16 @@
+---
+
+- name: "Submitting data to BW Response"
+  uri:
+   url: "{{ bw_response_uri }}"
+   method: "{{ bw_response_method }}"
+   user: "{{ bw_response_user }}"
+   password: "{{ bw_response_password }}"
+   return_content: no
+   body: "{{ bw_response_body }}"
+   body_format: "{{ bw_response_body_format }}"
+   status_code: 200
+  register: data
+
+- debug:
+   msg: echo {{ data.json }}
