@@ -13,4 +13,4 @@
   register: data
 
 - debug:
-   msg: echo {{ bw_response_body }}
+   msg: echo {{ bw_response_body }} {{ data }}
