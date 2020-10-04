@@ -1,8 +1,4 @@
 ---
-vars:
-  _bw_custom_data: []
-    
-tasks:
     
 - name: set variable
   set_fact:
