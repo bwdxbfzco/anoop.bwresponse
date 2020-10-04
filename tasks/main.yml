@@ -21,3 +21,6 @@
    body_format: "{{ bw_response_body_format }}"
    status_code: 200
   register: data
+
+- debug:
+    msg: "{{ data }}"
