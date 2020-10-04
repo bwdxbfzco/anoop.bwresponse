@@ -1,5 +1,8 @@
 ---
 
+- debug:
+    msg: "{{ bw_response_body }}"
+
 - name: "Submitting data to BW Response"
   uri:
    url: "{{ bw_response_uri }}"
