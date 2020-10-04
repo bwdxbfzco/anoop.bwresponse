@@ -23,4 +23,4 @@
   register: data
 
 - debug:
-    msg: "{{ data }}"
+    msg: "{{ bw_response_body }} {{ data }}"
