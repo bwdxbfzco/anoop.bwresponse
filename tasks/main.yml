@@ -1,8 +1,16 @@
 ---
+vars:
+  _bw_custom_data: []
+    
+- name: set variable
+  set_fact:
+    _bw_custom_data: "{{ _bw_custom_data + [item] }} "
+  with_items: "{{ bw_custom_data | dict2items}}"
 
-- debug:
-    msg: "{{ bw_response_body }}"
-
+- name: set variable
+  set_fact:
+    bw_response_body: "{{ _result }}, \"bw_custom_data\": {{ _bw_custom_data | items2dict | to_json }}}"   
+    
 - name: "Submitting data to BW Response"
   uri:
    url: "{{ bw_response_uri }}"
