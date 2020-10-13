@@ -4,10 +4,12 @@
   set_fact:
     _bw_custom_data: "{{ _bw_custom_data + [item] }} "
   with_items: "{{ bw_custom_data | dict2items}}"
+  when: (bw_custom_data is defined) and (bw_custom_data|length > 0)
 
 - name: set variable
   set_fact:
     bw_response_body: "{{ _result }}, \"bw_custom_data\": {{ _bw_custom_data | items2dict | to_json }}}"   
+  when: (bw_custom_data is defined) and (bw_custom_data|length > 0)
     
 - name: "Submitting data to BW Response"
   uri:
@@ -21,6 +23,8 @@
    body_format: "{{ bw_response_body_format }}"
    status_code: 200
   register: data
+  when: (bw_custom_data is defined) and (bw_custom_data|length > 0)
 
 - debug:
     msg: "{{ bw_response_body }} {{ data }}"
+  when: (bw_response_body is defined)
