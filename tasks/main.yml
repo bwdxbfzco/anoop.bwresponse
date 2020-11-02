@@ -1,12 +1,12 @@
 ---
     
-- name: set variable
+- name: set variable set 1
   set_fact:
     _bw_custom_data: "{{ _bw_custom_data + [item] }} "
   with_items: "{{ bw_custom_data | default({}) | dict2items}}"
   when: (bw_custom_data is defined) and (bw_custom_data|length > 0)
 
-- name: set variable
+- name: set variable set 2
   set_fact:
     bw_response_body: "{{ _result }}, \"bw_custom_data\": {{ _bw_custom_data | items2dict | to_json }}}"   
   when: (bw_custom_data is defined) and (bw_custom_data|length > 0)
