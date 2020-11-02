@@ -4,3 +4,4 @@ bw_response_user: web
 bw_response_password: web
 bw_response_method: POST
 bw_response_body_format: json
+bw_custom_data: {}
